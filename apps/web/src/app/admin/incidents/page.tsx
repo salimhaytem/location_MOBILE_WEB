@@ -72,13 +72,13 @@ export default function IncidentsPage() {
 
   const getStatusBadge = (status: string) => {
     const styles: Record<string, string> = {
-      REPORTED: 'bg-yellow-100 text-yellow-800',
-      UNDER_REVIEW: 'bg-blue-100 text-blue-800',
+      OPEN: 'bg-yellow-100 text-yellow-800',
+      IN_PROGRESS: 'bg-blue-100 text-blue-800',
       RESOLVED: 'bg-green-100 text-green-800',
     };
     const labels: Record<string, string> = {
-      REPORTED: 'Signalé',
-      UNDER_REVIEW: 'En cours',
+      OPEN: 'Ouvert',
+      IN_PROGRESS: 'En cours',
       RESOLVED: 'Résolu',
     };
     return (
@@ -105,7 +105,7 @@ export default function IncidentsPage() {
 
       <div className="p-6">
         <div className="flex gap-2 mb-6">
-          {['all', 'REPORTED', 'UNDER_REVIEW', 'RESOLVED'].map((status) => (
+          {['all', 'OPEN', 'IN_PROGRESS', 'RESOLVED'].map((status) => (
             <button
               key={status}
               onClick={() => setFilter(status)}
@@ -113,7 +113,7 @@ export default function IncidentsPage() {
                 filter === status ? 'bg-blue-600 text-white' : 'bg-white text-gray-700 border'
               }`}
             >
-              {status === 'all' ? 'Tous' : status === 'REPORTED' ? 'Signalés' : status === 'UNDER_REVIEW' ? 'En cours' : 'Résolus'}
+              {status === 'all' ? 'Tous' : status === 'OPEN' ? 'Ouverts' : status === 'IN_PROGRESS' ? 'En cours' : 'Résolus'}
             </button>
           ))}
         </div>
@@ -199,17 +199,17 @@ export default function IncidentsPage() {
               <div>
                 <label className="text-sm text-gray-600">Statut</label>
                 <div className="flex gap-2 mt-2">
-                  {['REPORTED', 'UNDER_REVIEW', 'RESOLVED'].map((status) => (
-                    <button
-                      key={status}
-                      onClick={() => handleStatusChange(selectedIncident.id, status)}
-                      className={`px-3 py-1 rounded text-sm ${
-                        selectedIncident.status === status ? 'bg-blue-600 text-white' : 'bg-gray-100'
-                      }`}
-                    >
-                      {status === 'REPORTED' ? 'Signalé' : status === 'UNDER_REVIEW' ? 'En cours' : 'Résolu'}
-                    </button>
-                  ))}
+{['OPEN', 'IN_PROGRESS', 'RESOLVED'].map((status) => (
+                      <button
+                        key={status}
+                        onClick={() => handleStatusChange(selectedIncident.id, status)}
+                        className={`px-3 py-1 rounded text-sm ${
+                          selectedIncident.status === status ? 'bg-blue-600 text-white' : 'bg-gray-100'
+                        }`}
+                      >
+                        {status === 'OPEN' ? 'Ouvert' : status === 'IN_PROGRESS' ? 'En cours' : 'Résolu'}
+                      </button>
+                    ))}
                 </div>
               </div>
 

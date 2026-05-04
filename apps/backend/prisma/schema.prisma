@@ -46,8 +46,8 @@ enum IncidentType {
 }
 
 enum IncidentStatus {
-  REPORTED
-  UNDER_REVIEW
+  OPEN
+  IN_PROGRESS
   RESOLVED
 }
 
@@ -209,7 +209,7 @@ model Incident {
   type         IncidentType
   description  String
   photos       String[]
-  status       IncidentStatus @default(REPORTED)
+  status       IncidentStatus @default(OPEN)
   adminNote    String?
   estimatedCost Float?
   createdAt    DateTime       @default(now())
