@@ -1,0 +1,11 @@
+{
+  "expo": {
+    "name": "CarLoc Staff",
+    "slug": "carloc-staff",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "splash": { "backgroundColor": "#0ea5e9" },
+    "scheme": "carloc-staff"
+  }
+}
